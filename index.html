@@ -1,268 +1,319 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Матвей Волков — Личное продюсирование</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<title>Матвей Волков — личное продюсирование</title>
 
-    html{
-      scroll-behavior:smooth;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    body{
-      font-family:'Inter',sans-serif;
-      background:#050505;
-      color:#f5f5f5;
-      overflow-x:hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+<style>
 
-    img{
-      max-width:100%;
-      display:block;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .container{
-      width:100%;
-      max-width:1240px;
-      margin:0 auto;
-      padding:0 24px;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .blur{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      overflow:hidden;
-    }
+body{
+  font-family:'Inter',sans-serif;
+  background:#050505;
+  color:#f5f5f5;
+  overflow-x:hidden;
+}
 
-    .blur::before{
-      content:'';
-      position:absolute;
-      width:700px;
-      height:700px;
-      background:rgba(255,208,0,0.08);
-      border-radius:50%;
-      filter:blur(120px);
-      top:-250px;
-      left:50%;
-      transform:translateX(-50%);
-    }
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      z-index:100;
-      backdrop-filter:blur(18px);
-      background:rgba(5,5,5,0.55);
-      border-bottom:1px solid rgba(255,255,255,0.06);
-    }
+img{
+  max-width:100%;
+  display:block;
+}
 
-    .header-inner{
-      height:82px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
+.container{
+  width:100%;
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 24px;
+}
 
-    .logo{
-      font-size:15px;
-      letter-spacing:0.28em;
-      text-transform:uppercase;
-      color:#f3d24f;
-      font-weight:500;
-    }
+.blur{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
 
-    nav{
-      display:flex;
-      gap:34px;
-    }
+.blur::before{
+  content:'';
+  position:absolute;
+  width:760px;
+  height:760px;
+  background:rgba(255,208,0,0.08);
+  border-radius:50%;
+  filter:blur(130px);
+  top:-260px;
+  left:50%;
+  transform:translateX(-50%);
+}
 
-    nav a{
-      font-size:14px;
-      color:rgba(255,255,255,0.68);
-      transition:0.3s ease;
-      font-weight:300;
-    }
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:100;
+  backdrop-filter:blur(18px);
+  background:rgba(5,5,5,0.55);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
 
-    nav a:hover{
-      color:#f3d24f;
-    }
+.header-inner{
+  height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      padding-top:105px;
-      padding-bottom:50px;
-    }
+.logo{
+  font-size:15px;
+  letter-spacing:0.26em;
+  text-transform:uppercase;
+  color:#f3d24f;
+  font-weight:500;
+}
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.1fr 0.9fr;
-      gap:60px;
-      align-items:center;
-    }
+nav{
+  display:flex;
+  gap:34px;
+}
 
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:12px 18px;
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:999px;
-      color:rgba(255,255,255,0.7);
-      font-size:13px;
-      margin-bottom:28px;
-      background:rgba(255,255,255,0.03);
-    }
+nav a{
+  font-size:14px;
+  color:rgba(255,255,255,0.68);
+  transition:0.3s ease;
+  font-weight:300;
+}
 
-    .dot{
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:#f3d24f;
-    }
+nav a:hover{
+  color:#f3d24f;
+}
 
-    h1{
-      font-size:clamp(48px,7vw,102px);
-      line-height:0.95;
-      font-weight:400;
-      letter-spacing:-0.06em;
-      max-width:820px;
-    }
+section{
+  padding:64px 0;
+}
 
-    h1 span{
-      color:rgba(255,255,255,0.38);
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:120px;
+  padding-bottom:40px;
+}
 
-    .hero-text{
-      margin-top:34px;
-      max-width:560px;
-      font-size:18px;
-      line-height:1.8;
-      color:rgba(255,255,255,0.62);
-      font-weight:300;
-    }
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.08fr 0.92fr;
+  gap:70px;
+  align-items:center;
+}
 
-    .hero-buttons{
-      display:flex;
-      gap:16px;
-      margin-top:42px;
-      flex-wrap:wrap;
-    }
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  color:rgba(255,255,255,0.72);
+  font-size:13px;
+  margin-bottom:30px;
+}
 
-    .btn{
-      padding:18px 30px;
-      border-radius:18px;
-      font-size:15px;
-      transition:0.3s ease;
-      font-weight:400;
-    }
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#f3d24f;
+}
 
-    .btn-primary{
-      background:#f3d24f;
-      color:#111;
-    }
+h1{
+  font-size:clamp(52px,7vw,106px);
+  line-height:0.94;
+  font-weight:400;
+  letter-spacing:-0.06em;
+}
 
-    .btn-primary:hover{
-      transform:translateY(-2px);
-    }
+h1 span{
+  color:rgba(255,255,255,0.35);
+}
 
-    .btn-secondary{
-      border:1px solid rgba(255,255,255,0.1);
-      color:rgba(255,255,255,0.8);
-      background:rgba(255,255,255,0.03);
-    }
+.hero-text{
+  margin-top:34px;
+  max-width:590px;
+  color:rgba(255,255,255,0.64);
+  line-height:1.9;
+  font-size:18px;
+  font-weight:300;
+}
 
-    .btn-secondary:hover{
-      border-color:rgba(243,210,79,0.4);
-      color:#f3d24f;
-    }
+.hero-buttons{
+  display:flex;
+  gap:16px;
+  margin-top:42px;
+  flex-wrap:wrap;
+}
 
-    .hero-image{
-      position:relative;
-      border-radius:34px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.08);
-      background:#111;
-      min-height:620px;
-    }
+.btn{
+  padding:18px 30px;
+  border-radius:18px;
+  font-size:15px;
+  transition:0.3s ease;
+  font-weight:400;
+}
 
-    .hero-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+.btn-primary{
+  background:#f3d24f;
+  color:#111;
+}
 
-    section{
-      padding:90px 0;
-    }
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
 
-    .section-top{
-      margin-bottom:40px;
-    }
+.btn-secondary{
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  color:rgba(255,255,255,0.82);
+}
 
-    .section-label{
-      color:rgba(243,210,79,0.75);
-      font-size:12px;
-      letter-spacing:0.28em;
-      text-transform:uppercase;
-      margin-bottom:16px;
-    }
+.btn-secondary:hover{
+  border-color:rgba(243,210,79,0.3);
+  color:#f3d24f;
+}
 
-    h2{
-      font-size:clamp(34px,5vw,64px);
-      line-height:1;
-      font-weight:400;
-      letter-spacing:-0.05em;
-    }
+.hero-image{
+  border-radius:36px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  background:#111;
+  min-height:640px;
+}
 
-    .about-text{
-      max-width:880px;
-      margin-top:26px;
-      color:rgba(255,255,255,0.62);
-      line-height:1.9;
-      font-size:18px;
-      font-weight:300;
-    }
-	
-	.timeline{
-  margin-top:50px;
+.hero-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.stats{
+  margin-top:40px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:22px;
 }
 
-.timeline-card{
+.stat{
+  padding:28px;
+  border-radius:28px;
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
-  border-radius:28px;
+}
+
+.stat h3{
+  font-size:42px;
+  font-weight:400;
+  color:#f3d24f;
+  margin-bottom:12px;
+}
+
+.stat p{
+  color:rgba(255,255,255,0.6);
+  line-height:1.75;
+  font-weight:300;
+}
+
+.section-top{
+  margin-bottom:46px;
+}
+
+.section-label{
+  color:rgba(243,210,79,0.75);
+  font-size:12px;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+h2{
+  font-size:clamp(34px,5vw,66px);
+  line-height:1;
+  font-weight:400;
+  letter-spacing:-0.05em;
+}
+
+.about-text{
+  margin-top:28px;
+  max-width:900px;
+  color:rgba(255,255,255,0.62);
+  line-height:1.9;
+  font-size:18px;
+  font-weight:300;
+}
+
+.timeline,
+.services,
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.timeline-card,
+.service,
+.card,
+.faq-item,
+.orden-box,
+.trust-box{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:30px;
+}
+
+.timeline-card,
+.card{
   padding:20px;
 }
 
-.timeline-card img{
+.service,
+.faq-item,
+.orden-box,
+.trust-box{
+  padding:34px;
+}
+
+.timeline{
+  margin-top:52px;
+}
+
+.timeline-card img,
+.card img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
-  border-radius:20px;
+  border-radius:22px;
   margin-bottom:20px;
 }
 
@@ -271,534 +322,948 @@
   color:#f3d24f;
   font-size:14px;
   margin-bottom:14px;
-  letter-spacing:0.08em;
 }
 
-.timeline-card p{
+.timeline-card p,
+.service p,
+.card p,
+.faq-item p{
   color:rgba(255,255,255,0.6);
-  line-height:1.8;
+  line-height:1.85;
   font-weight:300;
 }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-    }
+.service h3,
+.card h3{
+  font-size:28px;
+  margin-bottom:18px;
+  font-weight:400;
+}
 
-    .card{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:30px;
-      padding:30px;
-      transition:0.3s ease;
-    }
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(243,210,79,0.18);
+}
 
-    .card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(243,210,79,0.22);
-    }
+.card{
+  transition:0.3s ease;
+}
 
-    .card h3{
-      font-size:28px;
-      font-weight:400;
-      margin-bottom:20px;
-    }
+.faq{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
 
-    .card img{
-      border-radius:22px;
-      aspect-ratio:1/1;
-      object-fit:cover;
-      margin-bottom:20px;
-    }
+.faq-item img{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:24px;
+  margin-bottom:24px;
+}
 
-    .card p{
-      color:rgba(255,255,255,0.58);
-      line-height:1.8;
-      font-weight:300;
-    }
+.faq-item h4{
+  font-size:30px;
+  margin-bottom:20px;
+  font-weight:400;
+}
 
-    .faq{
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
+.faq-item strong{
+  color:#f3d24f;
+  font-weight:400;
+}
 
-    .faq-item{
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:28px;
-      padding:34px;
-      background:rgba(255,255,255,0.03);
-    }
+.closed{
+  margin-top:26px;
+  color:#ff6b6b;
+  font-size:14px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
 
-    .faq-item h4{
-      font-size:26px;
-      font-weight:400;
-      margin-bottom:18px;
-    }
+.cta{
+  text-align:center;
+  padding:90px 40px;
+  border-radius:42px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  position:relative;
+  overflow:hidden;
+}
 
-    .faq-item p{
-      color:rgba(255,255,255,0.62);
-      line-height:1.9;
-      font-weight:300;
-    }
+.cta::before{
+  content:'';
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:rgba(243,210,79,0.08);
+  filter:blur(100px);
+  top:-240px;
+  left:50%;
+  transform:translateX(-50%);
+}
 
-    .cta{
-      text-align:center;
-      padding:80px 40px;
-      border-radius:40px;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
-      position:relative;
-      overflow:hidden;
-    }
+.cta h2,
+.cta p,
+.cta-buttons,
+.cta .closed{
+  position:relative;
+  z-index:2;
+}
 
-    .cta::before{
-      content:'';
-      position:absolute;
-      width:500px;
-      height:500px;
-      border-radius:50%;
-      background:rgba(243,210,79,0.08);
-      filter:blur(100px);
-      top:-220px;
-      left:50%;
-      transform:translateX(-50%);
-    }
+.cta p{
+  margin:24px auto 0;
+  max-width:720px;
+  color:rgba(255,255,255,0.62);
+  line-height:1.9;
+  font-weight:300;
+}
 
-    .cta h2{
-      position:relative;
-      z-index:2;
-    }
+.cta-buttons{
+  margin-top:42px;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
 
-    .cta p{
-      position:relative;
-      z-index:2;
-      margin:24px auto 0;
-      max-width:680px;
-      color:rgba(255,255,255,0.62);
-      line-height:1.9;
-      font-weight:300;
-    }
+footer{
+  padding:36px 0 30px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  margin-top:50px;
+}
 
-    .cta-buttons{
-      position:relative;
-      z-index:2;
-      margin-top:40px;
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      flex-wrap:wrap;
-    }
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
 
-    .closed{
-      margin-top:28px;
-      color:#ff5f5f;
-      font-size:15px;
-      letter-spacing:0.04em;
-    }
+.footer-inner p{
+  color:rgba(255,255,255,0.38);
+  font-size:14px;
+}
 
-    footer{
-      padding:34px 0 50px;
-      border-top:1px solid rgba(255,255,255,0.06);
-      margin-top:100px;
-    }
+.sticky-btn{
+  position:fixed;
+  bottom:65px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:999;
+  background:#f3d24f;
+  color:#111;
+  padding:16px 26px;
+  border-radius:999px;
+  font-size:15px;
+  font-weight:500;
+  box-shadow:0 10px 40px rgba(243,210,79,0.2);
+}
 
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+@media(max-width:1100px){
 
-    .footer-inner p{
-      color:rgba(255,255,255,0.4);
-      font-size:14px;
-      font-weight:300;
-    }
-
-    @media (max-width:1100px){
-
-      .hero-grid,
-      .cards{
-        grid-template-columns:1fr;
-      }
-	  
-	    .timeline{
+  .hero-grid,
+  .stats,
+  .timeline,
+  .services,
+  .cards{
     grid-template-columns:1fr;
   }
 
-      .hero-image{
-        min-height:500px;
-      }
-    }
+  .hero-image{
+    min-height:520px;
+  }
 
-    @media (max-width:760px){
+}
 
-      nav{
-        display:none;
-      }
+@media(max-width:760px){
 
-      .container{
-        padding:0 18px;
-      }
+  nav{
+    display:none;
+  }
 
-      .hero{
-        padding-top:120px;
-      }
+  .container{
+    padding:0 18px;
+  }
 
-      .hero-image{
-        min-height:360px;
-      }
+  .hero{
+    padding-top:120px;
+  }
 
-      .card,
-      .faq-item,
-      .cta{
-        padding:26px;
-      }
+  .hero-image{
+    min-height:360px;
+  }
 
-      .btn{
-        width:100%;
-        text-align:center;
-      }
+  .btn{
+    width:100%;
+    text-align:center;
+  }
 
-      .hero-buttons,
-      .cta-buttons{
-        flex-direction:column;
-      }
-    }
+  .hero-buttons,
+  .cta-buttons{
+    flex-direction:column;
+  }
 
-  </style>
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="blur"></div>
 
 <header>
-  <div class="container header-inner">
 
-    <a href="#" class="logo">MATVEY VOLKOV</a>
+<div class="container header-inner">
 
-    <nav>
-      <a href="#about">О Матвее</a>
-      <a href="#cases">Кейсы</a>
-      <a href="#mentorship">Наставничество</a>
-      <a href="#orden">ORDEN</a>
-      <a href="#contact">Контакты</a>
-    </nav>
+<a href="#" class="logo">
+MATVEY VOLKOV
+</a>
 
-  </div>
+<nav>
+<a href="#about">О Матвее</a>
+<a href="#cases">Кейсы</a>
+<a href="#mentorship">Ученики</a>
+<a href="#contact">Контакты</a>
+</nav>
+
+</div>
+
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="container hero-grid">
 
-    <div>
+<div class="container hero-grid">
 
-      <div class="tag">
-        <div class="dot"></div>
-        личное продюсирование · наставничество · медийность
-      </div>
+<div>
 
-      <h1>
-        Помогаю выйти
-        <span>на новый уровень</span>
-        в доходе и жизни
-      </h1>
+<div class="tag">
+<div class="dot"></div>
+личное продюсирование · наставничество · медийность
+</div>
 
-      <p class="hero-text">
-        Матвей Волков — личный продюсер и наставник.
-        Помогаю быстрее приходить к результату
-        через опыт, систему, окружение и реальные действия.
-      </p>
+<h1>
+Из навыков —
+<span>в деньги, связи</span>
+и медийность
+</h1>
 
-      <div class="hero-buttons">
+<p class="hero-text">
+Матвей Волков — личный продюсер и наставник.
+Помогаю молодым ребятам быстрее выходить
+на высокий доход,
+сильное окружение
+и новый уровень жизни.
+</p>
 
-        <a href="https://t.me/motvolkov" class="btn btn-primary">
-          Телеграм канал
-        </a>
+<div class="hero-buttons">
 
-        <a href="https://t.me/Motvolkovv" class="btn btn-secondary">
-          Записаться на разбор
-        </a>
+<a href="https://t.me/motvolkov" class="btn btn-primary">
+Телеграм канал
+</a>
 
-      </div>
+<a href="https://t.me/Motvolkovv" class="btn btn-secondary">
+Записаться на разбор
+</a>
 
-    </div>
+</div>
 
-    <div class="hero-image">
-      <img src="matvey.jpg" alt="Матвей Волков">
-    </div>
+<div class="stats">
 
-  </div>
+<div class="stat">
+<h3 class="counter rub" data-target="210">0</h3>
+<p>
+Сделано за весну
+в 13 лет
+на монтаже
+и медийной работе
+</p>
+</div>
+
+<div class="stat">
+<h3 class="counter people" data-target="50">0</h3>
+<p>
+Человек прошли через
+наставничество,
+разборы
+и работу
+</p>
+</div>
+
+<div class="stat">
+<h3 class="counter million" data-target="15">0</h3>
+<p>
+Просмотров
+привлечено
+крупным блогерам
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="matvey.jpg" alt="">
+</div>
+
+</div>
+
 </section>
 
 <section id="about">
-  <div class="container">
 
-    <div class="section-top">
+<div class="container">
 
-      <div class="section-label">О Матвее</div>
+<div class="section-top">
+
+<div class="section-label">
+О Матвее
+</div>
+
+<h2>
+Биография
+</h2>
+
+
+
+</div>
 
 <div class="timeline">
 
-  <div class="timeline-card">
-    <img src="story1.jpg" alt="">
+<div class="timeline-card">
 
-    <span>5 класс, 11 лет</span>
+<img src="story1.jpg" alt="">
 
-    <p>
-		начал заниматьмя спортом, 
-		начал укреплять тело и менталку, 
-		с контента по спорту перешёл на контент по бизнесу, 
-		смотрел видео по типу
-		"как заработать школьнику"
-		"как заработать в 11 лет"
-		<br></br>
-		начал перепродавать жвачки и сухарики, заработал первые "деньги", запретили.
-		делал обложки треков, был админом паблика в тг - всё провалилось
-    </p>
-  </div>
+<span>
+5 класс · 11 лет
+</span>
 
-  <div class="timeline-card">
-    <img src="story2.jpg" alt="">
+<p>
+Начал перепродавать
+жвачки и сухарики,
+делал обложки,
+админил Telegram паблики —
+почти всё проваливалось,
+но именно тогда
+появилось понимание,
+что хочу выйти
+на другой уровень жизни.
+</p>
 
-    <span>май 2024</span>
+</div>
 
-    <p>
-      вдохновился роликом на ютубе, решил сделать игру. потратил 3 месяца и забросил.
-	  ушёл в рассылки, первая 1000р, первые связи, учился рассылкам, админил каналы в тг.
-	  <br></br>
-	  наткнулся на мца рилсы, "прикольно смонтировано", написал монтажёру, научился.
-	  не было заказов, но потом вступил в PROD(лучшее решение в жизни)
-	  
-    </p>
-  </div>
+<div class="timeline-card">
 
-  <div class="timeline-card">
-    <img src="story3.jpg" alt="">
+<img src="story2.jpg" alt="">
 
-    <span>сейчас</span>
+<span>
+май 2024
+</span>
 
-    <p>
-     меня начали рекомендовать большие клиенты, за весну сделал 210к в 13 лет, затем основал Persona Agency, зарабатваю 100-150к/мес стабильно, вывожу молодых ребят на высокие чеки.
-    </p>
-  </div>
+<p>
+Ушёл в рассылки,
+первые деньги,
+первые связи,
+монтаж,
+контент,
+работа с Telegram каналами.
+
+Потом —
+первые клиенты
+и резкий рост
+через окружение.
+</p>
+
+</div>
+
+<div class="timeline-card">
+
+<img src="story3.jpg" alt="">
+
+<span>
+сейчас
+</span>
+
+<p>
+Работа
+с крупными блогерами,
+100–150к+/месяц стабильно,
+собственное агентство
+Persona Agency
+и личное наставничество
+для молодых ребят.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-top">
+
+<div class="section-label">
+Что получает человек
+</div>
+
+<h2>
+Не мотивация —
+
+</h2>
+
+</div>
+
+<div class="services">
+
+<div class="service">
+
+<h3>
+Система
+</h3>
+
+<p>
+Чёткое понимание,
+куда двигаться,
+как искать клиентов,
+как расти
+и как выйти
+на новый уровень быстрее.
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+Окружение
+</h3>
+
+<p>
+Связи,
+контакты,
+медийность
+и люди,
+которые уже растут
+и двигаются вперёд.
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+Практика
+</h3>
+
+<p>
+Разборы,
+обратная связь,
+помощь
+с клиентами,
+контентом
+и развитием
+в разных нишах.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="forwho">
+
+<div class="container">
+
+<div class="section-top">
+
+<div class="section-label">
+Для кого
+</div>
+
+<h2>
+Ты узнаешь себя
+</h2>
+
+
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<h4>
+Есть навыки,
+но нет денег
+</h4>
+
+<p>
+Уже обладаешь навыком,
+но клиентов мало,
+роста нет
+и непонятно,
+как уйти выше.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4>
+Нет окружения
+</h4>
+
+<p>
+Вокруг никто
+не развивается,
+из-за этого
+сложно держать темп,
+мышление
+и дисциплину.Большинство 
+каждый день
+находятся среди тех,
+кто тянет их назад.
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h4>
+Хочешь масштабироваться
+</h4>
+
+<p>
+Через реальные действия,
+опыт,
+связи,
+медийность
+и сильное окружение.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="cases">
+
+<div class="container">
+
+<div class="section-top">
+
+<div class="section-label">
+Миллионные кейсы
+</div>
+
+<h2>
+Люди,
+с которыми работал
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="gosha.jpg" alt="">
+
+<h3>
+Гоша Миллер
+</h3>
+
+<p>
+Работа
+с контентом,
+монтажом
+и медийной подачей.
+
+10M+ просмотров
+привлечено.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="brius.jpg" alt="">
+
+<h3>
+Артём Бриус
+</h3>
+
+<p>
+Монтаж,
+контент
+и развитие
+личного бренда
+через сильную подачу.
+
+2M+ просмотров.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="grebenuk.jpg" alt="">
+
+<h3>
+Михаил Гребенюк
+</h3>
+
+<p>
+Работа
+с высокими стандартами
+и контентом
+крупного уровня.
+
+1M+ просмотров.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="trust-box">
+
+
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-top">
+
+<div class="section-label">
+Как всё проходит
+</div>
+
+<h2>
+Простой процесс
+</h2>
+
+</div>
+
+<div class="services">
+
+<div class="service">
+
+<h3>
+01
+</h3>
+
+<p>
+Ты пишешь лично
+в Telegram
+и рассказываешь
+свою ситуацию,
+навыки
+и цели.
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+02
+</h3>
+
+<p>
+Матвей смотрит,
+сможет ли реально
+ускорить
+твой рост
+и помочь
+выйти выше.
+</p>
+
+</div>
+
+<div class="service">
+
+<h3>
+03
+</h3>
+
+<p>
+Дальше —
+личная работа,
+стратегия,
+окружение,
+связи,
+контент,
+клиенты
+и развитие.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="mentorship">
+
+<div class="container">
+
+<div class="section-top">
+
+<div class="section-label">
+Наставничество
+</div>
+
+<h2>
+Главные результаты
+учеников
+</h2>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<img src="timur.jpg" alt="">
+
+<h4>
+Тимур Юмагулов
+</h4>
+
+<p>
+
+<strong>
+Точка А:
+</strong><br><br>
+
+10–20к дохода,
+простой монтаж,
+отсутствие медийности.
+
+<br><br>
+
+<strong>
+Через 2 месяца:
+</strong><br><br>
+
+100к+/месяц,
+high-level клиенты,
+сильная медийность
+и сарафанка.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<img src="ivan.jpg" alt="">
+
+<h4>
+Иван Шайхилов
+</h4>
+
+<p>
+
+<strong>
+Точка А:
+</strong><br><br>
+
+Доход <10к,
+непонимание,
+куда двигаться.
+
+<br><br>
+
+<strong>
+Через 3 недели:
+</strong><br><br>
+
+50–70к+ дохода,
+работа
+с медийными клиентами
+и резкий рост.
+
+</p>
+
+
+</div>
+
+<div class="faq-item"> <img src="artem.jpg" alt=""> <h4>Артём Орлов, 12 лет</h4> <p> <strong>Точка А:</strong><br> Застрял в одном доходе, страх больших заказов и плохая репутация. <br><br> <strong>Через 2 месяца:</strong><br> Первые 50к, затем 80к+ в 13 лет. </p> </div>
+
+<div class="faq-item"> <img src="ilya.jpg" alt=""> <h4>Илья Кокорев, 16 лет</h4> <p> <strong>Точка А:</strong><br> Постоянные нервные срывы, эмоциональная нестабильность, доход — 0 рублей. <br><br> <strong>Через 2 месяца:</strong><br> 110к+ на заказах, стабильное состояние, уверенность и сильное окружение. </p> </div>
+
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container">
+
+<div class="cta">
+
+<h2>
+Через год
+ты всё равно пожалеешь)
+</h2>
+
+<p>
+Большинство людей
+годами остаются
+в одной точке —
+не потому что слабые,
+а потому что растут в одиночку.
+
+Ты можешь дальше сидеть на месте, или принять решение и сэкономить года жизни
+</p>
+
+<div class="cta-buttons">
+
+<a href="https://t.me/motvolkov" class="btn btn-primary">
+Телеграм канал
+</a>
+
+<a href="https://t.me/Motvolkovv" class="btn btn-secondary">
+Написать лично
+</a>
 
 </div>
 
 
-    </div>
+</div>
 
-  </div>
-</section>
+</div>
 
-<section id="cases">
-  <div class="container">
-
-    <div class="section-top">
-
-      <div class="section-label">Миллионные кейсы</div>
-
-      <h2>
-        Миллионные клиенты
-      </h2>
-
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <h3>Гоша Миллер</h3>
-
-        <p>
-        текст кейса
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>Артём Бриус</h3>
-
-
-        <p>
-          текст кейса
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>Михаил Гребенюк</h3>
-
-        <p>
-          текст кейса
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="mentorship">
-  <div class="container">
-
-    <div class="section-top">
-
-      <div class="section-label">Кейсы наставничества</div>
-
-      <h2>
-        Главные результаты
-        учеников
-      </h2>
-
-    </div>
-
-    <div class="faq">
-
-      <div class="faq-item">
-        <h4>Тимур Юмагулов, 16 лет</h4>
-
-        <p>
-          <strong>Точка А:</strong><br>
-          Доход 10–20к, простой монтаж, отсутствие медийности.
-          <br><br>
-
-          <strong>Через 2 месяца:</strong><br>
-          100к+/месяц, high-level заказы,
-          сильная медийность и постоянные клиенты.
-          <br><br>
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h4>Иван Шайхилов, 15 лет</h4>
-
-        <p>
-          <strong>Точка А:</strong><br>
-          Доход 10к, работа на стройке,
-          отсутствие понимания куда двигаться.
-          <br><br>
-
-          <strong>Через 3 недели:</strong><br>
-          50–70к дохода, монтажёр Слона,
-          работа с медийными клиентами.
-          <br><br>
-
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h4>Илья Кокорев, 16 лет</h4>
-
-        <p>
-          <strong>Точка А:</strong><br>
-          Нестабильное состояние,
-          постоянные нервные срывы,
-          заработок — 0 рублей.
-          <br><br>
-
-          <strong>Через 2 месяца:</strong><br>
-          110к+ заказы,
-          стабильное состояние,
-          уверенность и сильное окружение.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h4>Артём Орлов, 12 лет</h4>
-
-        <p>
-          <strong>Точка А:</strong><br>
-          Застрял в доходе,
-          страх брать большие заказы.
-          <br><br>
-
-          <strong>Через 2 месяца:</strong><br>
-          Первые 50к,
-          затем 80к+ за месяц в 13 лет.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="orden">
-  <div class="container">
-
-    <div class="section-top">
-
-      <div class="section-label">Комьюнити</div>
-
-      <h2>
-        ORDEN
-      </h2>
-
-      <p class="about-text">
-        Закрытое окружение людей,
-        которые хотят расти быстрее —
-        в мышлении, деньгах и жизни.
-      </p>
-
-      <div class="closed">
-        доступ закрыт
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-
-    <div class="cta">
-
-      <h2>
-        Хочешь ускорить
-        свой рост?
-      </h2>
-
-      <p>
-        Напиши лично или переходи в Telegram —
-        возможно, именно сейчас начинается
-        твой следующий этап.
-      </p>
-
-      <div class="cta-buttons">
-
-        <a href="https://t.me/motvolkov" class="btn btn-primary">
-          Телеграм канал
-        </a>
-
-        <a href="https://t.me/Motvolkovv" class="btn btn-secondary">
-          Записаться на разбор
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container footer-inner">
-    <p>© 2026 MATVEY VOLKOV</p>
-    <p>personal production / mentorship</p>
-  </div>
+
+<div class="container footer-inner">
+
+<p>
+© 2026 MATVEY VOLKOV
+</p>
+
+
+<a href="https://t.me/andrevfx" >
+page by andre
+</a>
+
+
+</div>
+
 </footer>
+
+<a href="https://t.me/Motvolkovv" class="sticky-btn">
+Связаться с Матвеем
+</a>
+
+<script>
+
+const counters = document.querySelectorAll('.counter');
+
+const runCounter = (counter) => {
+
+const target = +counter.dataset.target;
+
+let current = 0;
+
+const increment = target / 60;
+
+const updateCounter = () => {
+
+current += increment;
+
+if(current < target){
+
+counter.innerText = Math.floor(current);
+
+requestAnimationFrame(updateCounter);
+
+}else{
+
+if(counter.classList.contains('million')){
+counter.innerText = target + 'M+';
+}
+
+if(counter.classList.contains('people')){
+counter.innerText = target + '+';
+}
+
+if(counter.classList.contains('rub')){
+counter.innerText = target + 'к+';
+}
+
+}
+
+};
+
+updateCounter();
+
+};
+
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+runCounter(entry.target);
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},{
+threshold:0.5
+});
+
+counters.forEach(counter=>{
+observer.observe(counter);
+});
+
+</script>
 
 </body>
 </html>
